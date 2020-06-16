@@ -1,0 +1,24 @@
+{
+  "name": "sync-mongo",
+
+  "tags": ["sync", "mongo", "client"],
+
+  "libraries": [
+    "${dependencies}/vertx-sync-${version}.jar",
+    "${dependencies}/quasar-core",
+    "${dependencies}/kryo",
+    "${dependencies}/de.flapdoodle.embed",
+    "${dependencies}/commons-compress",
+    "${dependencies}/hsqldb"
+  ],
+
+  "executions": {
+    "java" : {
+      "directory" : "${base}",
+      "command" : "vertx run io.vertx.example.sync.mongo.Client -cp ${base}/target/classes:. -Dembedded-mongo.skip=true"
+    }
+  },
+
+  "grace-text": "Succeeded in deploying verticle",
+  "post-check": "sync-mongo-check.groovy"
+}

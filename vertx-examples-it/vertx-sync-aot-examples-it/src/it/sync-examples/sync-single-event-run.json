@@ -1,0 +1,24 @@
+{
+  "name": "sync-single-event",
+
+  "tags": ["sync", "event"],
+
+  "libraries": [
+    "${dependencies}/vertx-sync-${version}.jar",
+    "${dependencies}/quasar-core",
+    "${dependencies}/kryo",
+    "${dependencies}/de.flapdoodle.embed",
+    "${dependencies}/commons-compress",
+    "${dependencies}/hsqldb"
+  ],
+
+  "executions": {
+    "java" : {
+      "directory" : "${base}",
+      "command" : "vertx run io.vertx.example.sync.singleevent.Server -cp ${base}/target/classes:."
+    }
+  },
+
+  "grace-text": "Single event has fired",
+  "post-check": "sync-single-event-check.groovy"
+}

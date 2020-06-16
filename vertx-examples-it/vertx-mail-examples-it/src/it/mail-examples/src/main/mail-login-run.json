@@ -1,0 +1,26 @@
+{
+  "name": "mail-login",
+  "tags": [
+    "mail",
+    "login"
+  ],
+
+  "libraries": [
+    "${dependencies}/subethasmtp",
+    "${dependencies}/mail",
+    "${dependencies}/slf4j-api"
+  ],
+
+  "executions": {
+    "java": {
+      "directory": "${base}/src/main/java/io/vertx/example/mail",
+      "command": "vertx run io.vertx.example.mail.MailLogin -cp ${base}/target/classes:."
+    },
+    "groovy": {
+      "directory": "${base}/src/main/groovy/io/vertx/example/mail",
+      "command": "vertx run mail_login.groovy -cp ${base}/target/classes:."
+    }
+  },
+  "grace-text": "Mail sent",
+  "post-check": "mail-login-check.groovy"
+}

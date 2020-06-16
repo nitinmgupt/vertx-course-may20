@@ -1,0 +1,24 @@
+{
+  "name": "sync-eventbus-ping",
+
+  "tags": ["sync", "eventbus", "ping", "pong"],
+
+  "libraries": [
+    "${dependencies}/vertx-sync-${version}.jar",
+    "${dependencies}/quasar-core",
+    "${dependencies}/kryo",
+    "${dependencies}/de.flapdoodle.embed",
+    "${dependencies}/commons-compress",
+    "${dependencies}/hsqldb"
+  ],
+
+  "executions": {
+    "java" : {
+      "directory" : "${base}",
+      "command" : "vertx run io.vertx.example.sync.eventbus.pingpong.PingPong -cp ${base}/target/classes:."
+    }
+  },
+
+  "grace-text": "Succeeded in deploying verticle",
+  "post-check": "sync-eventbus-pingpong-check.groovy"
+}

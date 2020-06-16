@@ -1,0 +1,16 @@
+{
+  "name": "web-react",
+
+  "tags": ["web", "chat", "react"],
+
+  "executions": {
+
+    "java" : {
+      "directory" : "${base}/src/main/java/io/vertx/example/web/react",
+      "command" : "vertx run io.vertx.example.web.react.Server -cp ${base}/target/classes:."
+    }
+  },
+
+  "grace-text": "Succeeded in deploying verticle",
+  "client-check": "web-react-check.groovy"
+}

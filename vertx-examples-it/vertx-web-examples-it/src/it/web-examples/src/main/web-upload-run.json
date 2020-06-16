@@ -1,0 +1,17 @@
+{
+  "name": "web-upload",
+  "tags": [
+    "web",
+    "form",
+    "upload"
+  ],
+  "executions": {
+    "java": {
+      "directory": "${base}/src/main/java/io/vertx/example/web/upload",
+      "command": "vertx run io.vertx.example.web.upload.Server -cp ${base}/target/classes:."
+    }
+  },
+  "grace-text": "Succeeded in deploying verticle",
+  "client-check": "web-upload-check.groovy"
+
+}
